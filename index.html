@@ -392,7 +392,7 @@
 
         .training-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
         }
 
@@ -520,6 +520,10 @@
 
         .schedule-card.ocr {
             border-left-color: #4ecdc4;
+        }
+
+        .schedule-card.recovery {
+            border-left-color: #2ecc71;
         }
 
         .schedule-type {
@@ -708,7 +712,7 @@
             color: var(--red);
         }
 
-                .map-container {
+        .map-container {
             background-color: var(--medium-gray);
             height: 100%;
             min-height: 400px;
@@ -988,6 +992,18 @@
                         Felnőtteknek, tinédzsereknek és gyerekeknek.</p>
                     </div>
                 </div>
+
+                <div class="training-card">
+                    <img src="https://i.imgur.com/lJ1TICI.jpeg" alt="Recovery">
+                    <div class="training-icon" style="background-color: #2ecc71;">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="training-overlay">
+                        <h3 class="training-title">Recovery</h3>
+                        <p class="training-desc">Nyújtó és mobilizáló edzés a regenerációhoz, 
+                        flexibilitás és mozgástartomány fejlesztés.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1005,12 +1021,12 @@
                     <div class="schedule-grid">
                         <div class="schedule-card">
                             <div class="schedule-type">Hétfő</div>
-                            <div class="schedule-time">17:30 - 18:30</div>
+                            <div class="schedule-time">17:30 - 18:30<br>18:30 - 19:30</div>
                             <div class="schedule-group">Felnőtt csoport</div>
                         </div>
                         <div class="schedule-card">
                             <div class="schedule-type">Szerda</div>
-                            <div class="schedule-time">17:30 - 18:30</div>
+                            <div class="schedule-time">17:30 - 18:30<br>18:30 - 19:30</div>
                             <div class="schedule-group">Felnőtt csoport</div>
                         </div>
                         <div class="schedule-card">
@@ -1059,6 +1075,17 @@
                             <div class="schedule-type">Felnőtteknek</div>
                             <div class="schedule-time" style="color: #4ecdc4;">Szerda 19:30-20:30</div>
                             <div class="schedule-group">Intenzív akadálytréning</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="schedule-section">
+                    <h3 class="schedule-section-title" style="color: #2ecc71; border-color: #2ecc71;"><i class="fas fa-spa"></i> Recovery</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-card recovery">
+                            <div class="schedule-type">Nyújtó és mobilizáló</div>
+                            <div class="schedule-time" style="color: #2ecc71;">Hétfő 19:30-20:30</div>
+                            <div class="schedule-group">Regeneráció és flexibilitás</div>
                         </div>
                     </div>
                 </div>
@@ -1250,16 +1277,15 @@
                 </div>
 
                 <div class="map-container" style="position: relative; background: var(--medium-gray);">
-    <a href="https://www.google.com/maps/search/?api=1&query=Széna+tér+9,+Nyíregyháza,+4400" 
-       target="_blank" 
-       style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: 400px; text-decoration: none; color: var(--white);">
-        <i class="fas fa-map-marked-alt" style="font-size: 64px; color: var(--red); margin-bottom: 20px;"></i>
-        <h4 style="font-family: 'Oswald', sans-serif; font-size: 24px; margin-bottom: 10px;">Naked Warrior Team</h4>
-        <p style="color: var(--light-gray);">Széna tér 9, Nyíregyháza, 4400</p>
-        <p style="color: var(--red); margin-top: 10px; font-size: 14px;">Kattints a térkép megnyitásához →</p>
-    </a>
-</div>
-
+                    <a href="https://www.google.com/maps/search/?api=1&query=Széna+tér+9,+Nyíregyháza,+4400" 
+                       target="_blank" 
+                       style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: 400px; text-decoration: none; color: var(--white);">
+                        <i class="fas fa-map-marked-alt" style="font-size: 64px; color: var(--red); margin-bottom: 20px;"></i>
+                        <h4 style="font-family: 'Oswald', sans-serif; font-size: 24px; margin-bottom: 10px;">Naked Warrior Team</h4>
+                        <p style="color: var(--light-gray);">Széna tér 9, Nyíregyháza, 4400</p>
+                        <p style="color: var(--red); margin-top: 10px; font-size: 14px;">Kattints a térkép megnyitásához →</p>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1272,7 +1298,7 @@
                         <img src="https://i.imgur.com/WeCcPTI.jpeg" alt="Naked Warrior Team Logo">
                         <span class="logo-text">Naked <span>Warrior</span> Team</span>
                     </a>
-                    <p>Kettlebell, Krav Maga és OCR akadályedzés Nyíregyházán. 
+                    <p>Kettlebell, Krav Maga, OCR és Recovery edzések Nyíregyházán. 
                     Csatlakozz a közösséghez, és tapasztald meg a fejlődés örömét!</p>
                     <div class="footer-motto">"Csak a fejlődés állandó!"</div>
                 </div>
@@ -1345,4 +1371,3 @@
     </script>
 </body>
 </html>
-
