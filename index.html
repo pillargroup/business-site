@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naked Warrior Team | Kettlebell & Functional Training Nyíregyháza</title>
+    <title>Naked Warrior Team | Kettlebell, Krav Maga & OCR Nyíregyháza</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -465,7 +465,7 @@
             clip-path: polygon(20% 0, 100% 0, 80% 100%, 0% 100%);
         }
 
-        .hours {
+        .schedule {
             padding: 100px 0;
             background-color: var(--dark-gray);
             background-image: repeating-linear-gradient(
@@ -477,54 +477,69 @@
             );
         }
 
-        .hours-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 900px;
+        .schedule-container {
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .hour-card {
+        .schedule-section {
+            margin-bottom: 50px;
+        }
+
+        .schedule-section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            color: var(--red);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--red);
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .schedule-card {
             background-color: var(--medium-gray);
-            padding: 25px;
+            padding: 20px;
             border-left: 4px solid var(--red);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             transition: all 0.3s;
         }
 
-        .hour-card:hover {
+        .schedule-card:hover {
             background-color: rgba(230, 57, 70, 0.1);
             transform: translateX(10px);
         }
 
-        .hour-card.closed {
-            border-left-color: #444;
-            opacity: 0.6;
+        .schedule-card.krav {
+            border-left-color: #ff6b35;
         }
 
-        .day-name {
+        .schedule-card.ocr {
+            border-left-color: #4ecdc4;
+        }
+
+        .schedule-type {
             font-family: 'Oswald', sans-serif;
-            font-size: 18px;
+            font-size: 20px;
             color: var(--white);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
-        .day-hours {
+        .schedule-time {
             color: var(--red);
             font-size: 16px;
             font-weight: 700;
-            text-align: right;
+            margin-bottom: 5px;
         }
 
-        .day-closed {
-            color: #666;
-            font-size: 16px;
-            font-weight: 700;
-            text-transform: uppercase;
+        .schedule-group {
+            color: var(--light-gray);
+            font-size: 14px;
         }
 
         .reviews {
@@ -693,7 +708,7 @@
             color: var(--red);
         }
 
-        .map-container {
+                .map-container {
             background-color: var(--medium-gray);
             height: 100%;
             min-height: 400px;
@@ -705,49 +720,12 @@
             overflow: hidden;
         }
 
-        .map-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(230, 57, 70, 0.02) 10px,
-                rgba(230, 57, 70, 0.02) 20px
-            );
-            animation: slide 20s linear infinite;
-        }
-
-        @keyframes slide {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .map-content {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .map-content i {
-            font-size: 64px;
-            color: var(--red);
-            margin-bottom: 20px;
-        }
-
-        .map-content h4 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 24px;
-            color: var(--white);
-            margin-bottom: 10px;
-        }
-
-        .map-content p {
-            color: var(--light-gray);
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: none;
+            filter: grayscale(20%) contrast(1.1);
         }
 
         footer {
@@ -878,6 +856,10 @@
             .reviews-grid {
                 grid-template-columns: 1fr;
             }
+
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -892,7 +874,7 @@
                 <li><a href="#home">Főoldal</a></li>
                 <li><a href="#about">Rólunk</a></li>
                 <li><a href="#training">Edzések</a></li>
-                <li><a href="#hours">Nyitvatartás</a></li>
+                <li><a href="#schedule">Órarend</a></li>
                 <li><a href="#reviews">Vélemények</a></li>
                 <li><a href="#contact">Kapcsolat</a></li>
             </ul>
@@ -910,16 +892,17 @@
                 <span class="red">Kitartás</span>
                 <span class="white">Közösség</span>
             </h1>
-            <div class="hero-motto">"Csak a fejlődés állandó"</div>
+            <div class="hero-motto">"Csak a fejlődés állandó!"</div>
             <p class="hero-description">
                 A Naked Warrior Team egy közösségi alapú edzőterem Nyíregyházán, 
-                ahol a kettlebell edzés és funkcionális tréning találkozik. 
-                Legyen szó kezdő vagy haladó szintről, nálunk mindenki megtalálja 
-                a számára megfelelő kihívást.
+                ahol a kettlebell-hibrid edzés, a Krav Maga önvédelmi és közelharc rendszer, 
+                valamint az OCR akadályedzés találkozik. 
+                Legyen szó kezdő vagy haladó szintről, gyerekekről vagy felnőttekről, 
+                nálunk mindenki megtalálja a számára megfelelő kihívást.
             </p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Csatlakozz</a>
-                <a href="#training" class="btn btn-secondary">Edzések</a>
+                <a href="#schedule" class="btn btn-secondary">Órarend</a>
             </div>
         </div>
     </section>
@@ -935,10 +918,11 @@
                     <p>A Naked Warrior Team több mint egy edzőterem – egy közösség, 
                     ahol a tagok egymást motiválva érik el céljaikat. 
                     Szakértő edzőink segítenek fejleszteni az erődet, állóképességedet 
-                    és technikádat.</p>
-                    <p>Edzéseinken a kettlebell mellett obstacle course elemekkel és 
-                    funkcionális gyakorlatokkal dolgozunk, hogy teljes körű 
-                    fizikai felkészültséget érj el.</p>
+                    és technikádat, legyen szó kettlebell edzésről, önvédelemről vagy akadályfutásról.</p>
+                    <p>Edzéseinken gyerekeket és felnőtteket egyaránt várunk. 
+                    A kettlebell mellett Krav Maga önvédelmi és közelharc rendszerrel, 
+                    valamint OCR akadálypálya elemekkel dolgozunk, hogy teljes körű 
+                    fizikai felkészültséget és önbizalmat érj el.</p>
                     
                     <div class="about-stats">
                         <div class="stat">
@@ -975,73 +959,108 @@
                         <i class="fas fa-dumbbell"></i>
                     </div>
                     <div class="training-overlay">
-                        <h3 class="training-title">Kettlebell</h3>
+                        <h3 class="training-title">Kettlebell-Hibrid</h3>
                         <p class="training-desc">Az erő és állóképesség alapja. 
-                        Technikai képzés minden szinten.</p>
+                        Technikai képzés minden szinten, funkcionális gyakorlatokkal.</p>
                     </div>
                 </div>
 
                 <div class="training-card">
-                    <img src="https://i.imgur.com/SjuRNPx.jpeg" alt="Obstacle Course">
+                    <img src="https://i.imgur.com/SjuRNPx.jpeg" alt="OCR Akadályedzés">
                     <div class="training-icon">
                         <i class="fas fa-running"></i>
                     </div>
                     <div class="training-overlay">
-                        <h3 class="training-title">Obstacle Course</h3>
-                        <p class="training-desc">Akadálypálya tréning, 
+                        <h3 class="training-title">OCR Akadályedzés</h3>
+                        <p class="training-desc">Akadálypálya tréning gyerekeknek és felnőtteknek, 
                         ahol az egész tested dolgozik.</p>
                     </div>
                 </div>
 
                 <div class="training-card">
-                    <img src="https://i.imgur.com/6eHHRMN.jpeg" alt="Functional Training">
+                    <img src="https://i.imgur.com/6eHHRMN.jpeg" alt="Krav Maga">
                     <div class="training-icon">
                         <i class="fas fa-fist-raised"></i>
                     </div>
                     <div class="training-overlay">
-                        <h3 class="training-title">Funkcionális Tréning</h3>
-                        <p class="training-desc">Valódi mozgások, valódi eredmények. 
-                        Minden izomcsoportot megdolgoztatunk.</p>
+                        <h3 class="training-title">Krav Maga</h3>
+                        <p class="training-desc">Önvédelmi és közelharc rendszer valós helyzetekre. 
+                        Felnőtteknek, tinédzsereknek és gyerekeknek.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="hours" id="hours">
+    <section class="schedule" id="schedule">
         <div class="container">
             <div class="section-header">
                 <div class="section-subtitle">Mikor edzünk</div>
-                <h2 class="section-title">Nyitvatartás</h2>
+                <h2 class="section-title">Órarend</h2>
             </div>
-            <div class="hours-grid">
-                <div class="hour-card">
-                    <span class="day-name">Hétfő</span>
-                    <span class="day-hours">16:30 - 20:30</span>
+            
+            <div class="schedule-container">
+                <div class="schedule-section">
+                    <h3 class="schedule-section-title"><i class="fas fa-dumbbell"></i> Kettlebell-Hibrid</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-card">
+                            <div class="schedule-type">Hétfő</div>
+                            <div class="schedule-time">17:30 - 18:30</div>
+                            <div class="schedule-group">Felnőtt csoport</div>
+                        </div>
+                        <div class="schedule-card">
+                            <div class="schedule-type">Szerda</div>
+                            <div class="schedule-time">17:30 - 18:30</div>
+                            <div class="schedule-group">Felnőtt csoport</div>
+                        </div>
+                        <div class="schedule-card">
+                            <div class="schedule-type">Kedd</div>
+                            <div class="schedule-time">08:15 - 09:15<br>17:30 - 18:30</div>
+                            <div class="schedule-group">Felnőtt csoport</div>
+                        </div>
+                        <div class="schedule-card">
+                            <div class="schedule-type">Csütörtök</div>
+                            <div class="schedule-time">08:15 - 09:15<br>17:30 - 18:30</div>
+                            <div class="schedule-group">Felnőtt csoport</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="hour-card">
-                    <span class="day-name">Kedd</span>
-                    <span class="day-hours">08:15 - 09:15<br>15:30 - 20:30</span>
+
+                <div class="schedule-section">
+                    <h3 class="schedule-section-title" style="color: #ff6b35; border-color: #ff6b35;"><i class="fas fa-fist-raised"></i> Krav Maga</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-card krav">
+                            <div class="schedule-type">Felnőtt csoport</div>
+                            <div class="schedule-time" style="color: #ff6b35;">Kedd, Csütörtök 18:30-19:45</div>
+                            <div class="schedule-group">Intenzív önvédelmi tréning</div>
+                        </div>
+                        <div class="schedule-card krav">
+                            <div class="schedule-type">Krav Teens (10-14 évesek)</div>
+                            <div class="schedule-time" style="color: #ff6b35;">Kedd, Csütörtök 15:30-16:30</div>
+                            <div class="schedule-group">Tinédzser önvédelem</div>
+                        </div>
+                        <div class="schedule-card krav">
+                            <div class="schedule-type">Krav Kids (6-10 évesek)</div>
+                            <div class="schedule-time" style="color: #ff6b35;">Kedd, Csütörtök 16:45-17:30</div>
+                            <div class="schedule-group">Gyerek önvédelem</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="hour-card">
-                    <span class="day-name">Szerda</span>
-                    <span class="day-hours">16:30 - 20:30</span>
-                </div>
-                <div class="hour-card">
-                    <span class="day-name">Csütörtök</span>
-                    <span class="day-hours">08:15 - 09:15<br>15:30 - 20:30</span>
-                </div>
-                <div class="hour-card closed">
-                    <span class="day-name">Péntek</span>
-                    <span class="day-closed">Zárva</span>
-                </div>
-                <div class="hour-card closed">
-                    <span class="day-name">Szombat</span>
-                    <span class="day-closed">Zárva</span>
-                </div>
-                <div class="hour-card closed">
-                    <span class="day-name">Vasárnap</span>
-                    <span class="day-closed">Zárva</span>
+
+                <div class="schedule-section">
+                    <h3 class="schedule-section-title" style="color: #4ecdc4; border-color: #4ecdc4;"><i class="fas fa-running"></i> OCR Akadályedzés</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-card ocr">
+                            <div class="schedule-type">Gyerekeknek (6-14 évesek)</div>
+                            <div class="schedule-time" style="color: #4ecdc4;">Hétfő, Szerda 16:30-17:30</div>
+                            <div class="schedule-group">Akadálypálya játékosan</div>
+                        </div>
+                        <div class="schedule-card ocr">
+                            <div class="schedule-type">Felnőtteknek</div>
+                            <div class="schedule-time" style="color: #4ecdc4;">Szerda 19:30-20:30</div>
+                            <div class="schedule-group">Intenzív akadálytréning</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1214,9 +1233,8 @@
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="contact-text">
-                            <h4>Nyitvatartás</h4>
-                            <p>H-Cs: 16:30-20:30 | K: 08:15-09:15, 15:30-20:30<br>
-                            P-V: Zárva</p>
+                            <h4>Órarend</h4>
+                            <p>Részletes órarendért görgess fel az Órarend szekcióhoz!</p>
                         </div>
                     </div>
 
@@ -1232,11 +1250,12 @@
                 </div>
 
                 <div class="map-container">
-                    <div class="map-content">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <h4>Nyíregyháza</h4>
-                        <p>Széna tér 9, 4400</p>
-                    </div>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2683.558703716843!2d21.71724331567442!3d47.95328697920885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47389c7c3b2e7b4f%3A0x8a7a3b5e5e5e5e5e!2sNaked%20Warrior%20Team%20terme!5e0!3m2!1shu!2shu!4v1234567890" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -1250,9 +1269,9 @@
                         <img src="https://i.imgur.com/WeCcPTI.jpeg" alt="Naked Warrior Team Logo">
                         <span class="logo-text">Naked <span>Warrior</span> Team</span>
                     </a>
-                    <p>Kettlebell és funkcionális tréning Nyíregyházán. 
+                    <p>Kettlebell, Krav Maga és OCR akadályedzés Nyíregyházán. 
                     Csatlakozz a közösséghez, és tapasztald meg a fejlődés örömét!</p>
-                    <div class="footer-motto">"Csak a fejlődés állandó"</div>
+                    <div class="footer-motto">"Csak a fejlődés állandó!"</div>
                 </div>
                 
                 <div class="footer-links">
@@ -1261,7 +1280,7 @@
                         <li><a href="#home">Főoldal</a></li>
                         <li><a href="#about">Rólunk</a></li>
                         <li><a href="#training">Edzések</a></li>
-                        <li><a href="#hours">Nyitvatartás</a></li>
+                        <li><a href="#schedule">Órarend</a></li>
                         <li><a href="#reviews">Vélemények</a></li>
                     </ul>
                 </div>
@@ -1323,3 +1342,4 @@
     </script>
 </body>
 </html>
+
