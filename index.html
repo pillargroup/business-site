@@ -423,12 +423,13 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            align-items: start;
         }
 
         .training-card {
             position: relative;
             overflow: hidden;
-            height: 400px;
+            aspect-ratio: 3/4;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -441,6 +442,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             transition: transform 0.5s;
             filter: grayscale(30%);
         }
@@ -506,6 +508,7 @@
             background-color: var(--dark-gray);
             margin-top: 20px;
             border-left: 4px solid var(--red);
+            grid-column: 1 / -1;
         }
 
         .training-expand.active {
@@ -1045,6 +1048,10 @@
 
             .training-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .training-card {
+                aspect-ratio: 4/5;
             }
 
             .about-stats {
